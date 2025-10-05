@@ -1,3 +1,4 @@
+# Organizations
 resource "aws_organizations_organization" "this" {
 
   aws_service_access_principals = [
@@ -32,6 +33,7 @@ resource "aws_organizations_organizational_unit" "shared_services" {
   parent_id = aws_organizations_organization.this.roots[0].id
 }
 
+# IAM Identity Center (SSO)
 data "aws_ssoadmin_instances" "this" {}
 
 locals {
