@@ -40,3 +40,19 @@ locals {
   sso_instance_arn  = tolist(data.aws_ssoadmin_instances.this.arns)[0]
   identity_store_id = tolist(data.aws_ssoadmin_instances.this.identity_store_ids)[0]
 }
+
+resource "aws_identitystore_user" "romano_romano" {
+  identity_store_id = local.identity_store_id
+
+  display_name = "Romano Romano"
+  user_name    = "romano.romano"
+
+  name {
+    family_name = "Romano"
+    given_name  = "Romano"
+  }
+
+  emails {
+    value = "romano.romano@gmail.com"
+  }
+}
