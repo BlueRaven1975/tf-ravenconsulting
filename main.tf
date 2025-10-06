@@ -41,6 +41,11 @@ locals {
   identity_store_id = tolist(data.aws_ssoadmin_instances.this.identity_store_ids)[0]
 }
 
+resource "aws_identitystore_group" "developers" {
+  identity_store_id = local.identity_store_id
+  display_name      = "Developers"
+}
+
 resource "aws_identitystore_user" "romano_romano" {
   identity_store_id = local.identity_store_id
 
