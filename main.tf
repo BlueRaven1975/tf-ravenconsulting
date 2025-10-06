@@ -66,3 +66,15 @@ resource "aws_identitystore_user" "romano_romano" {
     value = "romano.romano@gmail.com"
   }
 }
+
+resource "aws_identitystore_group_membership" "romano_romano_developers" {
+  identity_store_id = local.identity_store_id
+  group_id          = aws_identitystore_group.developers.group_id
+  member_id         = aws_identitystore_user.romano_romano.user_id
+}
+
+resource "aws_identitystore_group_membership" "romano_romano_platform_engineers" {
+  identity_store_id = local.identity_store_id
+  group_id          = aws_identitystore_group.platform_engineers.group_id
+  member_id         = aws_identitystore_user.romano_romano.user_id
+}
