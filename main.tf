@@ -46,6 +46,11 @@ resource "aws_identitystore_group" "developers" {
   display_name      = "Developers"
 }
 
+resource "aws_identitystore_group" "platform_engineers" {
+  identity_store_id = local.identity_store_id
+  display_name      = "Platform Engineers"
+}
+
 resource "aws_identitystore_user" "romano_romano" {
   identity_store_id = local.identity_store_id
 
